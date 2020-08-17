@@ -7,6 +7,7 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Iterator;
+import java.util.List;
 
 public class OpenCSVReadAndParseToBean {
     private static final String SAMPLE_CSV_FILE_PATH = "/home/ilaf/Desktop/Fellowship/JavaOpenCSVAndGson/JavaOpenCSV/src/main/resources/users.csv";
@@ -19,10 +20,10 @@ public class OpenCSVReadAndParseToBean {
                     .withType(CSVUser.class)
                     .withIgnoreLeadingWhiteSpace(true)
                     .build();
-            Iterator<CSVUser> csvUserIterator = csvToBean.iterator();
 
-            while (csvUserIterator.hasNext()){
-                CSVUser csvUser = csvUserIterator.next();
+            //read all CSV content to memory
+            List<CSVUser> csvUsers = csvToBean.parse();
+            for (CSVUser csvUser : csvUsers){
                 System.out.println("Name : " + csvUser.getName());
                 System.out.println("Email : " + csvUser.getEmail());
                 System.out.println("Phone : " + csvUser.getPhoneNo());
