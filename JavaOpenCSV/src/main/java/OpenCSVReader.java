@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class OpenCSVReader {
-    private static final String SAMPLE_CSV_FILE_PATH = "/home/ilaf/Desktop/Fellowship/JavaOpenCSVAndGson/JavaOpenCSV/src/main/resources/users.csv";
+    private static final String SAMPLE_CSV_FILE_PATH = "./src/main/resources/users.csv";
 
     public static void main(String[] args) throws IOException {
         try (
